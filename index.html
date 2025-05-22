@@ -294,6 +294,9 @@
             color: var(--primary);
             margin-bottom: 1rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .action-card:hover .action-icon {
@@ -1222,6 +1225,309 @@
         }
         
         /* ... existing code ... */
+
+        /* Fix per il contrasto in dark mode */
+        body.dark-mode .action-title {
+            color: var(--white);
+        }
+
+        body.dark-mode .action-desc {
+            color: var(--gray-300);
+        }
+
+        /* Nuova sezione notifiche nell'header */
+        .header-notifications {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .notification-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 10px;
+}
+
+        .notification-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .notification-icon i {
+    color: var(--white);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f44336;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 320px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            padding: 0;
+            z-index: 1000;
+            overflow: hidden;
+            display: none;
+            margin-top: 10px;
+            border: 1px solid var(--gray-200);
+        }
+
+        body.dark-mode .notification-dropdown {
+            background: var(--card-bg-dark);
+            border-color: var(--gray-800);
+        }
+
+        .notification-icon:hover .notification-dropdown {
+            display: block;
+        }
+
+        .notification-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        body.dark-mode .notification-header {
+            border-color: var(--gray-800);
+        }
+
+        .notification-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        body.dark-mode .notification-header h3 {
+            color: var(--white);
+        }
+
+        .notification-items {
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        body.dark-mode .notification-item {
+            border-color: var(--gray-800);
+        }
+
+        .notification-item:hover {
+            background: rgba(171, 202, 56, 0.05);
+        }
+
+        .notification-item.urgent {
+            background: rgba(244, 67, 54, 0.05);
+            border-left: 3px solid #f44336;
+        }
+
+        .notification-item.urgent:hover {
+            background: rgba(244, 67, 54, 0.1);
+        }
+
+        .notification-icon-small {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(244, 67, 54, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .notification-icon-small i {
+            font-size: 16px;
+            color: #f44336;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 5px;
+        }
+
+        body.dark-mode .notification-title {
+            color: var(--white);
+        }
+
+        .notification-message {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .notification-message {
+            color: var(--gray-400);
+        }
+
+        .notification-time {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .notification-footer {
+            padding: 12px;
+            text-align: center;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        body.dark-mode .notification-footer {
+            border-color: var(--gray-800);
+        }
+
+        .notification-footer a {
+            font-size: 13px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Alert per fatture non pagate */
+        .unpaid-alert {
+            background: linear-gradient(to right, rgba(244, 67, 54, 0.1), rgba(244, 67, 54, 0.05));
+            border-left: 4px solid #f44336;
+            padding: 15px 20px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .unpaid-alert-icon {
+            font-size: 24px;
+            color: #f44336;
+            margin-right: 15px;
+        }
+
+        .unpaid-alert-content {
+            flex: 1;
+        }
+
+        .unpaid-alert-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f44336;
+            margin-bottom: 5px;
+        }
+
+        .unpaid-alert-message {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.4;
+        }
+
+        body.dark-mode .unpaid-alert-message {
+            color: var(--gray-300);
+        }
+
+        .unpaid-alert-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .unpaid-alert-btn {
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .unpaid-alert-btn.view {
+            background: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+        }
+
+        .unpaid-alert-btn.view:hover {
+            background: rgba(244, 67, 54, 0.2);
+        }
+
+        .unpaid-alert-btn.send {
+            background: #f44336;
+            color: white;
+        }
+
+        .unpaid-alert-btn.send:hover {
+            background: #e53935;
+            box-shadow: 0 4px 10px rgba(244, 67, 54, 0.25);
+        }
+
+        /* Fix per il contrasto in dark mode per le card di azione */
+        body.dark-mode .quick-actions {
+            background: var(--card-bg-dark);
+            border-color: var(--gray-800);
+        }
+
+        body.dark-mode .action-card {
+            background: rgba(45, 55, 72, 0.5);
+            border-color: var(--gray-800);
+        }
+
+        body.dark-mode .action-title {
+            color: var(--white);
+        }
+
+        body.dark-mode .action-desc {
+            color: var(--gray-400);
+        }
+
+        body.dark-mode .section-title {
+            color: var(--white);
+        }
     </style>
 </head>
 <body>
@@ -1240,6 +1546,55 @@
                     </div>
                 </div>
                 <h1 class="app-title">Invio <span>Promemoria Fatture</span> S4 Energia</h1>
+                
+                <!-- Aggiunta della sezione notifiche -->
+                <div class="header-notifications">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationCount">3</span>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifiche</h3>
+                            </div>
+                            <div class="notification-items">
+                                <div class="notification-item urgent">
+                                    <div class="notification-icon-small">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Fatture non pagate</div>
+                                        <div class="notification-message">Ci sono 14 fatture non pagate che richiedono la tua attenzione</div>
+                                        <div class="notification-time">10 minuti fa</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon-small" style="background: rgba(171, 202, 56, 0.1);">
+                                        <i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Promemoria inviati</div>
+                                        <div class="notification-message">5 promemoria sono stati inviati con successo</div>
+                                        <div class="notification-time">1 ora fa</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon-small" style="background: rgba(33, 150, 243, 0.1);">
+                                        <i class="fas fa-user-plus" style="color: #2196f3;"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Nuovo cliente</div>
+                                        <div class="notification-message">Il cliente "Energreen SRL" è stato aggiunto al sistema</div>
+                                        <div class="notification-time">3 ore fa</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="#">Visualizza tutte le notifiche</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="action-panel">
                     <label class="theme-switch">
                         <input type="checkbox" id="themeToggle">
@@ -1254,48 +1609,64 @@
     </header>
 
     <div class="container">
-        <!-- Quick Action Section -->
+        <!-- Quick Action Section con design innovativo -->
         <section class="quick-actions">
-            <div class="action-card" id="viewUnpaidCard">
-                <div class="action-icon">
-                    <i class="fas fa-exclamation-circle"></i>
+                            <div class="action-card" id="sendReminderBulkCard">
+                <div class="action-icon" style="background: linear-gradient(135deg, #9700c9, #6a0091); color: white; border-radius: 20px; width: 70px; height: 70px; box-shadow: 0 10px 20px rgba(151, 0, 201, 0.2); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-paper-plane" style="font-size: 2.2rem; display: flex; align-items: center; justify-content: center;"></i>
                 </div>
-                <h3 class="action-title">Fatture Non Pagate</h3>
-                <p class="action-desc">Visualizza rapidamente tutte le fatture in attesa di pagamento</p>
-                <button class="action-btn">Visualizza</button>
-            </div>
-
-            <div class="action-card" id="sendReminderBulkCard">
-                <div class="action-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <h3 class="action-title">Invio Multiplo</h3>
+                <h3 class="action-title" style="margin-top: 1rem; font-size: 1.25rem;">Invio Multiplo</h3>
                 <p class="action-desc">Invia promemoria a tutti i clienti con pagamenti in sospeso</p>
-                <button class="action-btn">Invia a Tutti</button>
+                <button class="action-btn" style="background: linear-gradient(135deg, #9700c9, #6a0091); transform: scale(1.1); padding: 0.6rem 1.5rem; box-shadow: 0 8px 15px rgba(151, 0, 201, 0.25);">
+                    <i class="fas fa-bolt" style="margin-right: 5px;"></i> Invia a Tutti
+                </button>
             </div>
 
             <div class="action-card" id="addClientCardQuick">
-                <div class="action-icon">
-                    <i class="fas fa-user-plus"></i>
+                <div class="action-icon" style="background: linear-gradient(135deg, #00b4d8, #0077b6); color: white; border-radius: 20px; width: 70px; height: 70px; box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user-plus" style="font-size: 2.2rem; display: flex; align-items: center; justify-content: center;"></i>
                 </div>
-                <h3 class="action-title">Nuovo Cliente</h3>
+                <h3 class="action-title" style="margin-top: 1rem; font-size: 1.25rem;">Nuovo Cliente</h3>
                 <p class="action-desc">Aggiungi un nuovo cliente al sistema di gestione</p>
-                <button class="action-btn">Aggiungi</button>
+                <button class="action-btn" style="background: linear-gradient(135deg, #00b4d8, #0077b6); transform: scale(1.1); padding: 0.6rem 1.5rem; box-shadow: 0 8px 15px rgba(0, 180, 216, 0.25);">
+                    <i class="fas fa-plus-circle" style="margin-right: 5px;"></i> Aggiungi
+                </button>
             </div>
 
             <div class="action-card" id="uploadPdfCardQuick">
-                <div class="action-icon">
-                    <i class="fas fa-file-upload"></i>
+                <div class="action-icon" style="background: linear-gradient(135deg, #ff9f1c, #ff7b00); color: white; border-radius: 20px; width: 70px; height: 70px; box-shadow: 0 10px 20px rgba(255, 159, 28, 0.2); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-file-upload" style="font-size: 2.2rem; display: flex; align-items: center; justify-content: center;"></i>
                 </div>
-                <h3 class="action-title">Carica Fatture</h3>
+                <h3 class="action-title" style="margin-top: 1rem; font-size: 1.25rem;">Carica Fatture</h3>
                 <p class="action-desc">Carica documenti PDF delle fatture da inviare</p>
-                <button class="action-btn">Carica</button>
+                <button class="action-btn" style="background: linear-gradient(135deg, #ff9f1c, #ff7b00); transform: scale(1.1); padding: 0.6rem 1.5rem; box-shadow: 0 8px 15px rgba(255, 159, 28, 0.25);">
+                    <i class="fas fa-cloud-upload-alt" style="margin-right: 5px;"></i> Carica
+                </button>
             </div>
         </section>
 
         <section class="dashboard">
             <!-- Pannelli delle statistiche -->
-            <h2 class="section-title">Panoramica <span class="badge" id="todayDate">Oggi</span></h2>
+            <h2 class="section-title">Panoramica</h2>
+            
+            <!-- Alert per fatture non pagate -->
+            <div class="unpaid-alert">
+                <div class="unpaid-alert-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="unpaid-alert-content">
+                    <div class="unpaid-alert-title">Attenzione: Fatture non pagate</div>
+                    <div class="unpaid-alert-message">Ci sono 14 fatture non pagate per un totale di €12,450.00. Si consiglia di inviare promemoria ai clienti.</div>
+                </div>
+                <div class="unpaid-alert-actions">
+                    <button class="unpaid-alert-btn view" id="viewUnpaidAlertBtn">
+                        <i class="fas fa-eye"></i> Visualizza
+                    </button>
+                    <button class="unpaid-alert-btn send" id="sendReminderAlertBtn">
+                        <i class="fas fa-paper-plane"></i> Invia promemoria
+                    </button>
+                </div>
+            </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
@@ -1341,13 +1712,13 @@
                     <div class="stat-icon success">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Tasso di Pagamento</div>
-                        <div class="stat-value" id="paymentRateValue">0%</div>
-                        <div class="stat-trend positive">
-                            <i class="fas fa-arrow-up"></i> 3% rispetto al mese scorso
+                                            <div class="stat-content">
+                            <div class="stat-label">Tasso di Pagamento</div>
+                            <div class="stat-value" id="paymentRateValue">0%</div>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i> 3% rispetto al mese scorso
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
             
@@ -1368,7 +1739,7 @@
                         </div>
                     </div>
                     <div class="chart-body">
-                        <div class="chart-container">
+                        <div class="chart-container" style="display: block;">
                             <canvas id="paymentStatusChart" class="chart-canvas"></canvas>
                         </div>
                     </div>
@@ -1387,7 +1758,7 @@
                         </div>
                     </div>
                     <div class="chart-body">
-                        <div class="chart-container">
+                        <div class="chart-container" style="display: block;">
                             <canvas id="clientAmountChart" class="chart-canvas"></canvas>
                         </div>
                     </div>
@@ -1653,8 +2024,8 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body" style="padding: 0;">
-                <div style="height: 600px; width: 100%;">
-                    <canvas id="expandedChart" style="width: 100%; height: 100%;"></canvas>
+                <div style="height: 600px; width: 100%; position: relative;">
+                    <canvas id="expandedChart" style="width: 100%; height: 100%; display: block;"></canvas>
                 </div>
             </div>
         </div>
@@ -1772,8 +2143,22 @@
                 document.body.classList.remove('dark-mode');
             }
             
-            // Aggiorna i grafici
-            renderCharts();
+            // Distruggi i grafici esistenti
+            if (window.paymentChart) {
+                window.paymentChart.destroy();
+                window.paymentChart = null;
+            }
+            
+            if (window.amountChart) {
+                window.amountChart.destroy();
+                window.amountChart = null;
+            }
+            
+            // Aggiorna i grafici con un leggero ritardo
+            setTimeout(() => {
+                console.log('Ricreo i grafici dopo cambio tema');
+                renderCharts();
+            }, 100);
         }
         
         // Dati dei clienti
@@ -1787,12 +2172,8 @@
                 const response = await fetch('clienti.json');
                 clientsData = await response.json();
                 
-                // Impostare la data odierna
-                const today = new Date();
-                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-                document.getElementById('todayDate').textContent = today.toLocaleDateString('it-IT', options);
-                
                 setTimeout(() => {
+                    console.log('Rendering dati dopo caricamento');
                     renderClientsTable();
                     updateStatistics();
                     renderCharts();
@@ -1858,7 +2239,7 @@
                 easing: 'easeInOutExpo',
                 duration: 2000,
                 update: function(anim) {
-                    document.getElementById('paymentRateValue').textContent = anim.animations[0].currentValue + '%';
+                    document.getElementById('paymentRateValue').textContent = anim.animations[0].currentValue;
                 }
             });
         }
@@ -1940,17 +2321,43 @@
             document.getElementById('pendingPaymentsValue').textContent = pendingPayments;
             document.getElementById('totalAmountValue').textContent = `€${totalAmount.toFixed(2)}`;
             document.getElementById('paymentRateValue').textContent = `${Math.round(paymentRate)}%`;
+            
+            // Aggiorna anche il testo nell'alert delle fatture non pagate
+            document.querySelector('.unpaid-alert-message').textContent = 
+                `Ci sono ${pendingPayments} fatture non pagate per un totale di €${totalAmount.toFixed(2)}. Si consiglia di inviare promemoria ai clienti.`;
         }
 
         // Funzione per renderizzare i grafici
         function renderCharts() {
+            // Assicuriamoci che i canvas siano visibili
+            document.querySelectorAll('.chart-container').forEach(container => {
+                container.style.display = 'block';
+            });
+            
             renderPaymentStatusChart();
             renderClientAmountChart();
+            
+            // Aggiungiamo un log per debug
+            console.log('Grafici renderizzati');
         }
 
         // Grafico stato pagamenti
         function renderPaymentStatusChart() {
-            const ctx = document.getElementById('paymentStatusChart').getContext('2d');
+            const canvas = document.getElementById('paymentStatusChart');
+            if (!canvas) {
+                console.error('Canvas per il grafico stato pagamenti non trovato');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Impossibile ottenere il contesto 2D per il grafico stato pagamenti');
+                return;
+            }
+            
+            // Resetta il canvas
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 300;
             
             // Aggiungi gradiente al grafico
             let gradientPaid = ctx.createLinearGradient(0, 0, 0, 250);
@@ -2061,7 +2468,21 @@
 
         // Grafico importi per cliente
         function renderClientAmountChart() {
-            const ctx = document.getElementById('clientAmountChart').getContext('2d');
+            const canvas = document.getElementById('clientAmountChart');
+            if (!canvas) {
+                console.error('Canvas per il grafico importi per cliente non trovato');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Impossibile ottenere il contesto 2D per il grafico importi per cliente');
+                return;
+            }
+            
+            // Resetta il canvas
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 300;
             
             // Aggiungi un gradiente per le barre
             let gradientBar = ctx.createLinearGradient(0, 0, 0, 280);
@@ -2286,49 +2707,82 @@
 
         // Event listeners per i modali e altri elementi
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM completamente caricato');
+            
             // Caricamento dati
             loadClientsData();
             
-            // Configura l'espansione dei grafici
-            setupChartExpansion();
+            // Assicuriamoci che i canvas siano pronti
+            setTimeout(() => {
+                console.log('Tentativo di renderizzare i grafici dopo timeout');
+                renderCharts();
+                
+                // Configura l'espansione dei grafici
+                setupChartExpansion();
+            }, 1000);
             
             // Event listener per il toggle della modalità scura
             document.getElementById('themeToggle').addEventListener('change', toggleDarkMode);
             
             // Event listeners per le quick actions
-            document.getElementById('viewUnpaidCard').addEventListener('click', function() {
-                // Filtra la tabella per mostrare solo i non pagati
-                const rows = document.querySelectorAll('#clientsTable tbody tr');
+            // Gestisce il click sui pulsanti e sull'intera card
+            function addCardListener(cardId, modalId) {
+                const card = document.getElementById(cardId);
                 
-                rows.forEach(row => {
-                    const statusCell = row.querySelector('td:nth-child(8)');
-                    const status = statusCell.textContent.trim();
-                    
-                    if (status.includes('Non Pagato')) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
+                // Listener per l'intera card
+                card.addEventListener('click', function() {
+                    openModal(modalId);
                 });
                 
-                showToast('Filtro applicato', 'Visualizzazione limitata ai pagamenti in sospeso');
-            });
+                // Listener specifico per il pulsante
+                const button = card.querySelector('.action-btn');
+                if (button) {
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Previene il doppio trigger con il click sulla card
+                        openModal(modalId);
+                        
+                        // Effetto di animazione sul pulsante
+                        anime({
+                            targets: this,
+                            scale: [1, 1.2, 1],
+                            duration: 300,
+                            easing: 'easeInOutQuad'
+                        });
+                    });
+                }
+            }
             
-            document.getElementById('sendReminderBulkCard').addEventListener('click', function() {
-                openModal('bulkReminderModal');
-            });
-            
-            document.getElementById('addClientCardQuick').addEventListener('click', function() {
-                openModal('addClientModal');
-            });
-            
-            document.getElementById('uploadPdfCardQuick').addEventListener('click', function() {
-                openModal('uploadPdfModal');
-            });
+            // Configura i listener per le quick actions
+            addCardListener('sendReminderBulkCard', 'bulkReminderModal');
+            addCardListener('addClientCardQuick', 'addClientModal');
+            addCardListener('uploadPdfCardQuick', 'uploadPdfModal');
             
             // Floating action button
             document.getElementById('floatingActionBtn').addEventListener('click', function() {
-                openModal('addClientModal');
+                // Animazione avanzata per il pulsante flottante
+                anime({
+                    targets: this,
+                    rotate: 225, // Ruota il + per formare una x
+                    scale: [1, 1.2, 1],
+                    backgroundColor: ['var(--primary)', 'var(--purple)', 'var(--primary)'],
+                    boxShadow: [
+                        '0 6px 15px rgba(171, 202, 56, 0.4)',
+                        '0 8px 20px rgba(151, 0, 201, 0.5)',
+                        '0 6px 15px rgba(171, 202, 56, 0.4)'
+                    ],
+                    duration: 500,
+                    easing: 'easeOutExpo'
+                });
+                
+                // Apri il modal dopo una breve animazione
+                setTimeout(() => {
+                    openModal('addClientModal');
+                    
+                    // Resetta la rotazione per la prossima volta
+                    setTimeout(() => {
+                        this.style.transform = 'rotate(0deg)';
+                    }, 300);
+                }, 300);
             });
             
             // Gestione ricerca
@@ -2336,19 +2790,77 @@
                 const searchTerm = this.value.toLowerCase();
                 const rows = document.querySelectorAll('#clientsTable tbody tr');
                 
-                rows.forEach(row => {
-                    const text = row.textContent.toLowerCase();
-                    if (text.includes(searchTerm)) {
-                        row.style.display = '';
-                        if (searchTerm.length > 0) {
-                            row.style.backgroundColor = 'rgba(171, 202, 56, 0.1)';
+                // Animazione dell'icona di ricerca
+                const searchIcon = this.previousElementSibling;
+                if (searchTerm.length > 0 && !searchIcon.classList.contains('searching')) {
+                    searchIcon.classList.add('searching');
+                    searchIcon.style.color = 'var(--primary)';
+                    
+                    // Aggiungi animazione pulsante
+                    anime({
+                        targets: searchIcon,
+                        scale: [1, 1.2, 1],
+                        duration: 300,
+                        easing: 'easeOutBack'
+                    });
+                } else if (searchTerm.length === 0 && searchIcon.classList.contains('searching')) {
+                    searchIcon.classList.remove('searching');
+                    searchIcon.style.color = 'var(--gray-500)';
+                }
+                
+                // Aggiungi un leggero ritardo per evitare troppe elaborazioni durante la digitazione veloce
+                clearTimeout(this.searchTimeout);
+                this.searchTimeout = setTimeout(() => {
+                    let matchCount = 0;
+                    
+                    rows.forEach(row => {
+                        const text = row.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            row.style.display = '';
+                            matchCount++;
+                            
+                            if (searchTerm.length > 0) {
+                                // Evidenzia la riga con animazione
+                                row.style.transition = 'background-color 0.3s ease';
+                                row.style.backgroundColor = 'rgba(171, 202, 56, 0.1)';
+                                
+                                // Evidenzia brevemente con un effetto più forte
+                                anime({
+                                    targets: row,
+                                    backgroundColor: [
+                                        'rgba(171, 202, 56, 0.2)',
+                                        'rgba(171, 202, 56, 0.1)'
+                                    ],
+                                    duration: 500,
+                                    easing: 'easeOutQuad'
+                                });
+                            } else {
+                                row.style.backgroundColor = '';
+                            }
                         } else {
-                            row.style.backgroundColor = '';
+                            // Nascondi la riga con animazione
+                            if (row.style.display !== 'none') {
+                                anime({
+                                    targets: row,
+                                    opacity: [1, 0],
+                                    height: [row.offsetHeight, 0],
+                                    duration: 300,
+                                    easing: 'easeOutQuad',
+                                    complete: function() {
+                                        row.style.display = 'none';
+                                        row.style.opacity = 1;
+                                        row.style.height = '';
+                                    }
+                                });
+                            }
                         }
-                    } else {
-                        row.style.display = 'none';
+                    });
+                    
+                    // Mostra un toast con il numero di risultati se la ricerca ha un termine
+                    if (searchTerm.length > 0) {
+                        showToast('Ricerca completata', `Trovati ${matchCount} risultati per "${searchTerm}"`);
                     }
-                });
+                }, 300);
             });
             
             // Modal promemoria
@@ -2356,21 +2868,44 @@
                 const clientName = document.getElementById('reminderClientName').value;
                 const btnText = this.innerHTML;
                 
+                // Animazione pulsante al click
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    backgroundColor: ['var(--primary)', 'var(--primary-dark)', 'var(--primary)'],
+                    duration: 300
+                });
+                
                 // Mostra l'icona di caricamento
-                this.innerHTML = '<div class="loading"></div>';
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Invio in corso...';
                 this.disabled = true;
                 
                 // Simulazione invio promemoria
                 setTimeout(() => {
-                    closeModal('reminderModal');
-                    this.innerHTML = btnText;
-                    this.disabled = false;
-                    showToast('Promemoria inviato', `Promemoria inviato con successo a ${clientName}`);
+                    // Effetto di successo
+                    anime({
+                        targets: this,
+                        scale: [1, 1.05, 1],
+                        backgroundColor: ['var(--primary)', '#27ae60', 'var(--primary)'],
+                        duration: 300
+                    });
+                    
+                    setTimeout(() => {
+                        closeModal('reminderModal');
+                        this.innerHTML = btnText;
+                        this.disabled = false;
+                        showToast('Promemoria inviato', `Promemoria inviato con successo a ${clientName}`);
+                    }, 300);
                 }, 1500);
             });
             
             document.getElementById('cancelReminderBtn').addEventListener('click', function() {
-                closeModal('reminderModal');
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    duration: 200
+                });
+                setTimeout(() => closeModal('reminderModal'), 200);
             });
             
             // Modal invio multiplo
@@ -2378,19 +2913,42 @@
                 const unpaidCount = document.getElementById('unpaidCount').textContent;
                 const btnText = this.innerHTML;
                 
-                this.innerHTML = '<div class="loading"></div>';
+                // Animazione pulsante al click
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    backgroundColor: ['var(--primary)', 'var(--primary-dark)', 'var(--primary)'],
+                    duration: 300
+                });
+                
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Invio in corso...';
                 this.disabled = true;
                 
                 setTimeout(() => {
-                    closeModal('bulkReminderModal');
-                    this.innerHTML = btnText;
-                    this.disabled = false;
-                    showToast('Promemoria multipli inviati', `${unpaidCount} promemoria inviati con successo`);
+                    // Effetto di successo
+                    anime({
+                        targets: this,
+                        scale: [1, 1.05, 1],
+                        backgroundColor: ['var(--primary)', '#27ae60', 'var(--primary)'],
+                        duration: 300
+                    });
+                    
+                    setTimeout(() => {
+                        closeModal('bulkReminderModal');
+                        this.innerHTML = btnText;
+                        this.disabled = false;
+                        showToast('Promemoria multipli inviati', `${unpaidCount} promemoria inviati con successo`);
+                    }, 300);
                 }, 2000);
             });
             
             document.getElementById('cancelBulkReminderBtn').addEventListener('click', function() {
-                closeModal('bulkReminderModal');
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    duration: 200
+                });
+                setTimeout(() => closeModal('bulkReminderModal'), 200);
             });
             
             // Modal nuovo cliente
@@ -2408,6 +2966,29 @@
                 };
                 
                 if (!newClient.nome || !newClient.azienda || !newClient.email) {
+                    // Evidenzia i campi mancanti
+                    ['newClientName', 'newClientCompany', 'newClientEmail'].forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        if (!field.value) {
+                            field.style.borderColor = '#f44336';
+                            field.style.boxShadow = '0 0 0 2px rgba(244, 67, 54, 0.2)';
+                            
+                            // Ripristina lo stile quando l'utente inizia a digitare
+                            field.addEventListener('input', function() {
+                                this.style.borderColor = '';
+                                this.style.boxShadow = '';
+                            }, { once: true });
+                        }
+                    });
+                    
+                    // Anima il pulsante per indicare errore
+                    anime({
+                        targets: this,
+                        translateX: [0, -10, 10, -10, 10, 0],
+                        duration: 400,
+                        easing: 'easeInOutQuad'
+                    });
+                    
                     showToast('Dati mancanti', 'Inserisci almeno nome, azienda ed email', 'error');
                     return;
                 }
@@ -2418,47 +2999,104 @@
                 });
                 
                 const btnText = this.innerHTML;
-                this.innerHTML = '<div class="loading"></div>';
+                
+                // Animazione pulsante al click
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    backgroundColor: ['var(--primary)', 'var(--primary-dark)', 'var(--primary)'],
+                    duration: 300
+                });
+                
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Salvataggio...';
                 this.disabled = true;
                 
                 setTimeout(() => {
-                    clientsData.push(newClient);
-                    closeModal('addClientModal');
-                    this.innerHTML = btnText;
-                    this.disabled = false;
-                    
-                    renderClientsTable();
-                    updateStatistics();
-                    renderCharts();
-                    populateClientSelect();
-                    
-                    showToast('Cliente aggiunto', 'Il nuovo cliente è stato aggiunto con successo');
-                    
-                    // Reset form
-                    document.getElementById('addClientModal').querySelectorAll('input, select').forEach(input => {
-                        if (input.type !== 'submit' && input.type !== 'button') {
-                            input.value = '';
-                        }
+                    // Effetto di successo
+                    anime({
+                        targets: this,
+                        scale: [1, 1.05, 1],
+                        backgroundColor: ['var(--primary)', '#27ae60', 'var(--primary)'],
+                        duration: 300
                     });
+                    
+                    setTimeout(() => {
+                        clientsData.push(newClient);
+                        closeModal('addClientModal');
+                        this.innerHTML = btnText;
+                        this.disabled = false;
+                        
+                        renderClientsTable();
+                        updateStatistics();
+                        renderCharts();
+                        populateClientSelect();
+                        
+                        showToast('Cliente aggiunto', 'Il nuovo cliente è stato aggiunto con successo');
+                        
+                        // Reset form
+                        document.getElementById('addClientModal').querySelectorAll('input, select').forEach(input => {
+                            if (input.type !== 'submit' && input.type !== 'button') {
+                                input.value = '';
+                                input.style.borderColor = '';
+                                input.style.boxShadow = '';
+                            }
+                        });
+                    }, 300);
                 }, 1000);
             });
             
             document.getElementById('cancelAddClientBtn').addEventListener('click', function() {
-                closeModal('addClientModal');
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    duration: 200
+                });
+                setTimeout(() => {
+                    // Reset form fields
+                    document.getElementById('addClientModal').querySelectorAll('input, select').forEach(input => {
+                        if (input.type !== 'submit' && input.type !== 'button') {
+                            input.style.borderColor = '';
+                            input.style.boxShadow = '';
+                        }
+                    });
+                    closeModal('addClientModal');
+                }, 200);
             });
             
             // Modal caricamento PDF
             document.getElementById('pdfFileInput').addEventListener('change', function() {
                 const file = this.files[0];
                 if (file) {
-                    document.getElementById('pdfPreview').style.display = 'block';
+                    const preview = document.getElementById('pdfPreview');
+                    preview.style.display = 'block';
                     document.getElementById('pdfFileName').textContent = file.name;
+                    
+                    // Aggiungi animazione quando viene selezionato un file
+                    anime({
+                        targets: preview,
+                        opacity: [0, 1],
+                        translateY: [10, 0],
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
                 }
             });
             
             document.getElementById('removePdfBtn').addEventListener('click', function() {
-                document.getElementById('pdfFileInput').value = '';
-                document.getElementById('pdfPreview').style.display = 'none';
+                const preview = document.getElementById('pdfPreview');
+                
+                // Animazione per rimuovere il file
+                anime({
+                    targets: preview,
+                    opacity: [1, 0],
+                    translateY: [0, 10],
+                    duration: 300,
+                    easing: 'easeOutQuad',
+                    complete: function() {
+                        document.getElementById('pdfFileInput').value = '';
+                        preview.style.display = 'none';
+                    }
+                });
             });
             
             document.getElementById('confirmUploadPdfBtn').addEventListener('click', function() {
@@ -2466,30 +3104,67 @@
                 const clientId = document.getElementById('pdfClientSelect').value;
                 
                 if (!file) {
+                    // Evidenzia il campo file
+                    const fileInput = document.getElementById('pdfFileInput');
+                    fileInput.parentElement.style.borderColor = '#f44336';
+                    fileInput.parentElement.style.boxShadow = '0 0 0 2px rgba(244, 67, 54, 0.2)';
+                    
+                    // Anima il pulsante per indicare errore
+                    anime({
+                        targets: this,
+                        translateX: [0, -10, 10, -10, 10, 0],
+                        duration: 400,
+                        easing: 'easeInOutQuad'
+                    });
+                    
                     showToast('File mancante', 'Seleziona un file PDF', 'error');
                     return;
                 }
                 
                 // Simulazione caricamento
                 const btnText = this.innerHTML;
-                this.innerHTML = '<div class="loading"></div>';
+                
+                // Animazione pulsante al click
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    backgroundColor: ['var(--primary)', 'var(--primary-dark)', 'var(--primary)'],
+                    duration: 300
+                });
+                
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Caricamento...';
                 this.disabled = true;
                 
                 setTimeout(() => {
-                    closeModal('uploadPdfModal');
-                    document.getElementById('pdfFileInput').value = '';
-                    document.getElementById('pdfPreview').style.display = 'none';
-                    document.getElementById('pdfNotes').value = '';
+                    // Effetto di successo
+                    anime({
+                        targets: this,
+                        scale: [1, 1.05, 1],
+                        backgroundColor: ['var(--primary)', '#27ae60', 'var(--primary)'],
+                        duration: 300
+                    });
                     
-                    this.innerHTML = btnText;
-                    this.disabled = false;
-                    
-                    showToast('PDF caricato', 'Il file PDF è stato caricato con successo');
+                    setTimeout(() => {
+                        closeModal('uploadPdfModal');
+                        document.getElementById('pdfFileInput').value = '';
+                        document.getElementById('pdfPreview').style.display = 'none';
+                        document.getElementById('pdfNotes').value = '';
+                        
+                        this.innerHTML = btnText;
+                        this.disabled = false;
+                        
+                        showToast('PDF caricato', 'Il file PDF è stato caricato con successo');
+                    }, 300);
                 }, 1500);
             });
             
             document.getElementById('cancelUploadPdfBtn').addEventListener('click', function() {
-                closeModal('uploadPdfModal');
+                anime({
+                    targets: this,
+                    scale: [1, 0.95, 1],
+                    duration: 200
+                });
+                setTimeout(() => closeModal('uploadPdfModal'), 200);
             });
             
             // Modal aggiunta colonna
@@ -2552,8 +3227,25 @@
             // Chiusura modale tramite pulsante X
             document.querySelectorAll('.close-modal').forEach(button => {
                 button.addEventListener('click', function() {
+                    // Animazione del pulsante X che ruota durante la chiusura
+                    anime({
+                        targets: this,
+                        rotate: 90,
+                        scale: [1, 0.8],
+                        opacity: [1, 0],
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                    
                     const modal = this.closest('.modal');
-                    closeModal(modal.id);
+                    setTimeout(() => {
+                        closeModal(modal.id);
+                        // Ripristina lo stato del pulsante per la prossima apertura
+                        setTimeout(() => {
+                            this.style.transform = '';
+                            this.style.opacity = '1';
+                        }, 300);
+                    }, 200);
                 });
             });
             
@@ -2561,258 +3253,343 @@
             document.querySelectorAll('.modal').forEach(modal => {
                 modal.addEventListener('click', function(e) {
                     if (e.target === this) {
-                        closeModal(this.id);
+                        // Aggiungi effetto pulse al contenuto prima di chiudere
+                        const content = this.querySelector('.modal-content');
+                        anime({
+                            targets: content,
+                            scale: [1, 0.98, 1],
+                            opacity: [1, 0.9, 1],
+                            duration: 300,
+                            easing: 'easeInOutQuad',
+                            complete: function() {
+                                closeModal(modal.id);
+                            }
+                        });
                     }
                 });
             });
         });
 
         // Aggiungi funzione per espandere il grafico nel JavaScript
-        function setupChartExpansion() {
-            // Gestisci l'espansione dei grafici
-            document.querySelectorAll('.chart-btn').forEach(button => {
-                if (button.querySelector('.fa-expand')) {
-                    button.addEventListener('click', function() {
-                        const chartContainer = this.closest('.chart-card');
-                        const chartTitle = chartContainer.querySelector('.chart-title').textContent;
-                        const chartCanvas = chartContainer.querySelector('canvas');
-                        const chartType = chartCanvas.id === 'paymentStatusChart' ? 'doughnut' : 'bar';
+function setupChartExpansion() {
+    // Gestisci l'espansione dei grafici
+    document.querySelectorAll('.chart-btn').forEach(button => {
+        if (button.querySelector('.fa-expand')) {
+            button.addEventListener('click', function() {
+                const chartContainer = this.closest('.chart-card');
+                const chartTitle = chartContainer.querySelector('.chart-title').textContent;
+                const chartCanvas = chartContainer.querySelector('canvas');
+                const chartType = chartCanvas.id === 'paymentStatusChart' ? 'doughnut' : 'bar';
+                
+                // Imposta il titolo del modal
+                document.getElementById('expandedChartTitle').textContent = chartTitle;
+                
+                // Apri il modal
+                openModal('expandChartModal');
+                
+                // Attendere che il modal sia completamente visibile prima di renderizzare il grafico
+                setTimeout(() => {
+                    // Assicurati che il canvas sia visibile
+                    const expandedCanvas = document.getElementById('expandedChart');
+                    expandedCanvas.style.width = '100%';
+                    expandedCanvas.style.height = '100%';
+                    expandedCanvas.style.display = 'block';
+                    
+                    const expandedCtx = expandedCanvas.getContext('2d');
+                    
+                    // Distruggi il grafico esistente se presente
+                    if (window.expandedChart) {
+                        window.expandedChart.destroy();
+                    }
+                    
+                    if (chartType === 'doughnut') {
+                        // Clona le opzioni e dati del grafico a ciambella
+                        let gradientPaid = expandedCtx.createLinearGradient(0, 0, 0, 600);
+                        gradientPaid.addColorStop(0, 'rgba(171, 202, 56, 0.9)');
+                        gradientPaid.addColorStop(1, 'rgba(157, 187, 64, 0.7)');
                         
-                        // Imposta il titolo del modal
-                        document.getElementById('expandedChartTitle').textContent = chartTitle;
+                        let gradientUnpaid = expandedCtx.createLinearGradient(0, 0, 0, 600);
+                        gradientUnpaid.addColorStop(0, 'rgba(244, 67, 54, 0.9)');
+                        gradientUnpaid.addColorStop(1, 'rgba(229, 57, 53, 0.7)');
                         
-                        // Apri il modal
-                        openModal('expandChartModal');
+                        const colors = darkMode ? 
+                            ['rgba(171, 202, 56, 0.8)', 'rgba(244, 67, 54, 0.8)'] : 
+                            [gradientPaid, gradientUnpaid];
                         
-                        // Ridisegna il grafico nel modal
-                        const expandedCtx = document.getElementById('expandedChart').getContext('2d');
-                        
-                        // Distruggi il grafico esistente se presente
-                        if (window.expandedChart) {
-                            window.expandedChart.destroy();
-                        }
-                        
-                        if (chartType === 'doughnut') {
-                            // Clona le opzioni e dati del grafico a ciambella
-                            let gradientPaid = expandedCtx.createLinearGradient(0, 0, 0, 600);
-                            gradientPaid.addColorStop(0, 'rgba(171, 202, 56, 0.9)');
-                            gradientPaid.addColorStop(1, 'rgba(157, 187, 64, 0.7)');
-                            
-                            let gradientUnpaid = expandedCtx.createLinearGradient(0, 0, 0, 600);
-                            gradientUnpaid.addColorStop(0, 'rgba(244, 67, 54, 0.9)');
-                            gradientUnpaid.addColorStop(1, 'rgba(229, 57, 53, 0.7)');
-                            
-                            const colors = darkMode ? 
-                                ['rgba(171, 202, 56, 0.8)', 'rgba(244, 67, 54, 0.8)'] : 
-                                [gradientPaid, gradientUnpaid];
-                            
-                            window.expandedChart = new Chart(expandedCtx, {
-                                type: 'doughnut',
-                                data: {
-                                    labels: ['Pagati', 'Non Pagati'],
-                                    datasets: [{
-                                        data: [clientsData.filter(client => client.pagato).length, clientsData.filter(client => !client.pagato).length],
-                                        backgroundColor: colors,
-                                        borderColor: colors,
-                                        borderWidth: 2,
-                                        hoverOffset: 30
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    cutout: '60%',
-                                    plugins: {
-                                        legend: {
-                                            position: 'bottom',
-                                            labels: {
-                                                boxWidth: 20,
-                                                padding: 20,
-                                                font: {
-                                                    family: "'Poppins', sans-serif",
-                                                    size: 16
-                                                }
-                                            }
-                                        },
-                                        tooltip: {
-                                            backgroundColor: darkMode ? 'rgba(30, 42, 58, 0.9)' : 'rgba(45, 45, 45, 0.9)',
-                                            titleFont: {
-                                                family: "'Poppins', sans-serif",
-                                                size: 18
-                                            },
-                                            bodyFont: {
-                                                family: "'Poppins', sans-serif",
-                                                size: 18
-                                            },
+                        window.expandedChart = new Chart(expandedCtx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Pagati', 'Non Pagati'],
+                                datasets: [{
+                                    data: [clientsData.filter(client => client.pagato).length, clientsData.filter(client => !client.pagato).length],
+                                    backgroundColor: colors,
+                                    borderColor: colors,
+                                    borderWidth: 2,
+                                    hoverOffset: 30
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                cutout: '60%',
+                                plugins: {
+                                    legend: {
+                                        position: 'bottom',
+                                        labels: {
+                                            boxWidth: 20,
                                             padding: 20,
-                                            cornerRadius: 8,
-                                            displayColors: true,
-                                            callbacks: {
-                                                label: function(context) {
-                                                    const label = context.label || '';
-                                                    const value = context.raw || 0;
-                                                    const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
-                                                    const percentage = Math.round((value / total) * 100);
-                                                    return `${label}: ${value} (${percentage}%)`;
-                                                }
+                                            font: {
+                                                family: "'Poppins', sans-serif",
+                                                size: 16
                                             }
                                         }
                                     },
-                                    animation: {
-                                        animateRotate: true,
-                                        animateScale: true,
-                                        duration: 1000,
-                                        easing: 'easeOutQuart'
+                                    tooltip: {
+                                        backgroundColor: darkMode ? 'rgba(30, 42, 58, 0.9)' : 'rgba(45, 45, 45, 0.9)',
+                                        titleFont: {
+                                            family: "'Poppins', sans-serif",
+                                            size: 18
+                                        },
+                                        bodyFont: {
+                                            family: "'Poppins', sans-serif",
+                                            size: 18
+                                        },
+                                        padding: 20,
+                                        cornerRadius: 8,
+                                        displayColors: true,
+                                        callbacks: {
+                                            label: function(context) {
+                                                const label = context.label || '';
+                                                const value = context.raw || 0;
+                                                const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                                const percentage = Math.round((value / total) * 100);
+                                                return `${label}: ${value} (${percentage}%)`;
+                                            }
+                                        }
                                     }
+                                },
+                                animation: {
+                                    animateRotate: true,
+                                    animateScale: true,
+                                    duration: 1000,
+                                    easing: 'easeOutQuart'
                                 }
-                            });
-                            
-                            // Aggiungi l'etichetta centrale
-                            const total = clientsData.length;
-                            if (document.getElementById('expandedDoughnutCenterLabel')) {
-                                document.getElementById('expandedDoughnutCenterLabel').remove();
                             }
-                            
-                            const centerLabel = document.createElement('div');
-                            centerLabel.id = 'expandedDoughnutCenterLabel';
-                            centerLabel.style.position = 'absolute';
-                            centerLabel.style.top = '50%';
-                            centerLabel.style.left = '50%';
-                            centerLabel.style.transform = 'translate(-50%, -50%)';
-                            centerLabel.style.textAlign = 'center';
-                            centerLabel.style.pointerEvents = 'none';
-                            
-                            const paidPercent = Math.round((clientsData.filter(client => client.pagato).length / total) * 100);
-                            
-                            centerLabel.innerHTML = `
-                                <div style="font-size: 48px; font-weight: 600; color: ${darkMode ? '#f5f5f5' : '#2d2d2d'};">${paidPercent}%</div>
-                                <div style="font-size: 20px; color: ${darkMode ? '#ccc' : '#666'};">Pagati</div>
-                            `;
-                            
-                            const chartContainer = document.getElementById('expandedChart').parentNode;
-                            chartContainer.style.position = 'relative';
-                            chartContainer.appendChild(centerLabel);
-                            
-                        } else {
-                            // Clona le opzioni e dati del grafico a barre
-                            let gradientBar = expandedCtx.createLinearGradient(0, 0, 0, 600);
-                            gradientBar.addColorStop(0, 'rgba(151, 0, 201, 0.9)');
-                            gradientBar.addColorStop(1, 'rgba(89, 63, 98, 0.7)');
-                            
-                            const unpaidClients = clientsData.filter(client => !client.pagato);
-                            const labels = unpaidClients.map(client => client.nome); // Usa nomi completi nel grafico ingrandito
-                            const amounts = unpaidClients.map(client => client.importo);
-                            const ids = unpaidClients.map(client => client.id);
-                            
-                            const barColor = darkMode ? 'rgba(151, 0, 201, 0.8)' : gradientBar;
-                            
-                            window.expandedChart = new Chart(expandedCtx, {
-                                type: 'bar',
-                                data: {
-                                    labels: labels,
-                                    datasets: [{
-                                        label: 'Importo da Pagare (€)',
-                                        data: amounts,
-                                        backgroundColor: barColor,
-                                        borderColor: barColor,
-                                        borderWidth: 1,
-                                        borderRadius: 6,
-                                        hoverBackgroundColor: '#ffcc00',
-                                        barPercentage: 0.7
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true,
-                                            grid: {
-                                                color: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'
-                                            },
-                                            ticks: {
-                                                font: {
-                                                    family: "'Poppins', sans-serif",
-                                                    size: 14
-                                                },
-                                                color: darkMode ? '#ccc' : '#666'
-                                            }
+                        });
+                        
+                        // Aggiungi l'etichetta centrale
+                        const total = clientsData.length;
+                        if (document.getElementById('expandedDoughnutCenterLabel')) {
+                            document.getElementById('expandedDoughnutCenterLabel').remove();
+                        }
+                        
+                        const centerLabel = document.createElement('div');
+                        centerLabel.id = 'expandedDoughnutCenterLabel';
+                        centerLabel.style.position = 'absolute';
+                        centerLabel.style.top = '50%';
+                        centerLabel.style.left = '50%';
+                        centerLabel.style.transform = 'translate(-50%, -50%)';
+                        centerLabel.style.textAlign = 'center';
+                        centerLabel.style.pointerEvents = 'none';
+                        
+                        const paidPercent = Math.round((clientsData.filter(client => client.pagato).length / total) * 100);
+                        
+                        centerLabel.innerHTML = `
+                            <div style="font-size: 48px; font-weight: 600; color: ${darkMode ? '#f5f5f5' : '#2d2d2d'};">${paidPercent}%</div>
+                            <div style="font-size: 20px; color: ${darkMode ? '#ccc' : '#666'};">Pagati</div>
+                        `;
+                        
+                        const chartContainer = document.getElementById('expandedChart').parentNode;
+                        chartContainer.style.position = 'relative';
+                        chartContainer.appendChild(centerLabel);
+                        
+                    } else {
+                        // Clona le opzioni e dati del grafico a barre
+                        let gradientBar = expandedCtx.createLinearGradient(0, 0, 0, 600);
+                        gradientBar.addColorStop(0, 'rgba(151, 0, 201, 0.9)');
+                        gradientBar.addColorStop(1, 'rgba(89, 63, 98, 0.7)');
+                        
+                        const unpaidClients = clientsData.filter(client => !client.pagato);
+                        const labels = unpaidClients.map(client => client.nome); // Usa nomi completi nel grafico ingrandito
+                        const amounts = unpaidClients.map(client => client.importo);
+                        const ids = unpaidClients.map(client => client.id);
+                        
+                        const barColor = darkMode ? 'rgba(151, 0, 201, 0.8)' : gradientBar;
+                        
+                        window.expandedChart = new Chart(expandedCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: 'Importo da Pagare (€)',
+                                    data: amounts,
+                                    backgroundColor: barColor,
+                                    borderColor: barColor,
+                                    borderWidth: 1,
+                                    borderRadius: 6,
+                                    hoverBackgroundColor: '#ffcc00',
+                                    barPercentage: 0.7
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        grid: {
+                                            color: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'
                                         },
-                                        x: {
-                                            grid: {
-                                                display: false
+                                        ticks: {
+                                            font: {
+                                                family: "'Poppins', sans-serif",
+                                                size: 14
                                             },
-                                            ticks: {
-                                                maxRotation: 45,
-                                                minRotation: 45,
-                                                font: {
-                                                    family: "'Poppins', sans-serif",
-                                                    size: 14
-                                                },
-                                                color: darkMode ? '#ccc' : '#666'
-                                            }
+                                            color: darkMode ? '#ccc' : '#666'
                                         }
                                     },
-                                    plugins: {
-                                        legend: {
-                                            display: true,
-                                            position: 'top',
-                                            labels: {
-                                                font: {
-                                                    family: "'Poppins', sans-serif",
-                                                    size: 16
-                                                }
-                                            }
+                                    x: {
+                                        grid: {
+                                            display: false
                                         },
-                                        tooltip: {
-                                            backgroundColor: darkMode ? 'rgba(30, 42, 58, 0.9)' : 'rgba(45, 45, 45, 0.9)',
-                                            titleFont: {
+                                        ticks: {
+                                            maxRotation: 45,
+                                            minRotation: 45,
+                                            font: {
                                                 family: "'Poppins', sans-serif",
-                                                size: 16
+                                                size: 14
                                             },
-                                            bodyFont: {
-                                                family: "'Poppins', sans-serif",
-                                                size: 16
-                                            },
-                                            padding: 20,
-                                            cornerRadius: 8,
-                                            callbacks: {
-                                                title: function(context) {
-                                                    const index = context[0].dataIndex;
-                                                    return unpaidClients[index].nome;
-                                                },
-                                                label: function(context) {
-                                                    const value = context.parsed.y;
-                                                    return `Importo: €${value.toFixed(2)}`;
-                                                },
-                                                afterLabel: function(context) {
-                                                    const index = context.dataIndex;
-                                                    return `Fattura: ${unpaidClients[index].fattura}`;
-                                                }
-                                            }
-                                        }
-                                    },
-                                    animation: {
-                                        duration: 1000,
-                                        easing: 'easeOutQuart'
-                                    },
-                                    onClick: function(event, elements) {
-                                        if (elements.length > 0) {
-                                            const index = elements[0].index;
-                                            const clientId = ids[index];
-                                            closeModal('expandChartModal');
-                                            setTimeout(() => {
-                                                openReminderModal(clientId);
-                                            }, 400);
+                                            color: darkMode ? '#ccc' : '#666'
                                         }
                                     }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        labels: {
+                                            font: {
+                                                family: "'Poppins', sans-serif",
+                                                size: 16
+                                            }
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: darkMode ? 'rgba(30, 42, 58, 0.9)' : 'rgba(45, 45, 45, 0.9)',
+                                        titleFont: {
+                                            family: "'Poppins', sans-serif",
+                                            size: 16
+                                        },
+                                        bodyFont: {
+                                            family: "'Poppins', sans-serif",
+                                            size: 16
+                                        },
+                                        padding: 20,
+                                        cornerRadius: 8,
+                                        callbacks: {
+                                            title: function(context) {
+                                                const index = context[0].dataIndex;
+                                                return unpaidClients[index].nome;
+                                            },
+                                            label: function(context) {
+                                                const value = context.parsed.y;
+                                                return `Importo: €${value.toFixed(2)}`;
+                                            },
+                                            afterLabel: function(context) {
+                                                const index = context.dataIndex;
+                                                return `Fattura: ${unpaidClients[index].fattura}`;
+                                            }
+                                        }
+                                    }
+                                },
+                                animation: {
+                                    duration: 1000,
+                                    easing: 'easeOutQuart'
+                                },
+                                onClick: function(event, elements) {
+                                    if (elements.length > 0) {
+                                        const index = elements[0].index;
+                                        const clientId = ids[index];
+                                        closeModal('expandChartModal');
+                                        setTimeout(() => {
+                                            openReminderModal(clientId);
+                                        }, 400);
+                                    }
                                 }
-                            });
-                        }
-                    });
-                }
+                            }
+                        });
+                    }
+                }, 300); // Aggiungiamo un timeout per garantire che il modal sia visibile
             });
         }
+    });
+}
+
+                    // Aggiungere event listener per i pulsanti di alert
+            document.getElementById('viewUnpaidAlertBtn').addEventListener('click', function() {
+                // Aggiungi effetto animazione al pulsante
+                anime({
+                    targets: this,
+                    scale: [1, 1.1, 1],
+                    backgroundColor: ['rgba(244, 67, 54, 0.1)', 'rgba(244, 67, 54, 0.3)', 'rgba(244, 67, 54, 0.1)'],
+                    duration: 300,
+                    easing: 'easeInOutQuad'
+                });
+                
+                // Filtra la tabella per mostrare solo i non pagati
+                const rows = document.querySelectorAll('#clientsTable tbody tr');
+                
+                rows.forEach(row => {
+                    const statusCell = row.querySelector('td:nth-child(8)');
+                    const status = statusCell.textContent.trim();
+                    
+                    if (status.includes('Non Pagato')) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Scorri fino alla tabella con effetto highlight
+                const tableSection = document.querySelector('.table-section');
+                tableSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Aggiungi effetto highlight alla tabella
+                setTimeout(() => {
+                    tableSection.style.transition = 'box-shadow 0.5s ease';
+                    tableSection.style.boxShadow = '0 0 20px rgba(244, 67, 54, 0.3)';
+                    setTimeout(() => {
+                        tableSection.style.boxShadow = '';
+                    }, 1000);
+                }, 500);
+                
+                showToast('Filtro applicato', 'Visualizzazione limitata ai pagamenti in sospeso');
+            });
+
+            document.getElementById('sendReminderAlertBtn').addEventListener('click', function() {
+                // Aggiungi effetto animazione al pulsante
+                anime({
+                    targets: this,
+                    scale: [1, 1.1, 1],
+                    backgroundColor: ['#f44336', '#e53935', '#f44336'],
+                    duration: 300,
+                    easing: 'easeInOutQuad'
+                });
+                
+                openModal('bulkReminderModal');
+            });
+            
+            // Event listener per il pulsante di notifica nell'header
+            document.querySelector('.notification-icon').addEventListener('click', function() {
+                // Animazione del badge di notifica
+                anime({
+                    targets: this.querySelector('.notification-badge'),
+                    scale: [1, 1.2, 1],
+                    opacity: [1, 0.8, 1],
+                    duration: 300,
+                    easing: 'easeInOutQuad'
+                });
+            });
     </script>
 </body>
 </html>
