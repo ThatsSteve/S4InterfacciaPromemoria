@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "nome": "Marco Rossi",
+    "azienda": "Rossi Costruzioni S.r.l.",
+    "email": "m.rossi@rossicostruzioni.it",
+    "telefono": "335-1234567",
+    "fattura": "F-2023-001",
+    "importo": 2450.80,
+    "scadenza": "2023-11-15",
+    "pagato": true
+  },
+  {
+    "id": 2,
+    "nome": "Giulia Bianchi",
+    "azienda": "Bianchi Consulting",
+    "email": "g.bianchi@bianchiconsulting.it",
+    "telefono": "338-7654321",
+    "fattura": "F-2023-002",
+    "importo": 1830.50,
+    "scadenza": "2023-12-01",
+    "pagato": true
+  },
+  {
+    "id": 3,
+    "nome": "Luca Verdi",
+    "azienda": "Verdi Impianti",
+    "email": "l.verdi@verdiimpianti.it",
+    "telefono": "339-9876543",
+    "fattura": "F-2023-003",
+    "importo": 3210.75,
+    "scadenza": "2023-11-30",
+    "pagato": false
+  },
+  {
+    "id": 4,
+    "nome": "Sofia Esposito",
+    "azienda": "Esposito & Partners",
+    "email": "s.esposito@espositopartners.it",
+    "telefono": "331-2345678",
+    "fattura": "F-2023-004",
+    "importo": 1450.00,
+    "scadenza": "2023-12-10",
+    "pagato": true
+  },
+  {
+    "id": 5,
+    "nome": "Antonio Russo",
+    "azienda": "Russo Tech",
+    "email": "a.russo@russotech.it",
+    "telefono": "333-8765432",
+    "fattura": "F-2023-005",
+    "importo": 2760.30,
+    "scadenza": "2023-11-25",
+    "pagato": true
+  },
+  {
+    "id": 6,
+    "nome": "Laura Ferrari",
+    "azienda": "Ferrari Design",
+    "email": "l.ferrari@ferraridesign.it",
+    "telefono": "334-3456789",
+    "fattura": "F-2023-006",
+    "importo": 1980.45,
+    "scadenza": "2023-12-05",
+    "pagato": true
+  },
+  {
+    "id": 7,
+    "nome": "Giuseppe Romano",
+    "azienda": "Romano Edilizia",
+    "email": "g.romano@romanoedilizia.it",
+    "telefono": "337-8901234",
+    "fattura": "F-2023-007",
+    "importo": 4320.90,
+    "scadenza": "2023-11-20",
+    "pagato": false
+  },
+  {
+    "id": 8,
+    "nome": "Francesca Martini",
+    "azienda": "Martini Solutions",
+    "email": "f.martini@martinisolutions.it",
+    "telefono": "336-5678901",
+    "fattura": "F-2023-008",
+    "importo": 1670.25,
+    "scadenza": "2023-12-15",
+    "pagato": true
+  },
+  {
+    "id": 9,
+    "nome": "Davide Ricci",
+    "azienda": "Ricci Innovazione",
+    "email": "d.ricci@ricciinnovazione.it",
+    "telefono": "339-0123456",
+    "fattura": "F-2023-009",
+    "importo": 2890.60,
+    "scadenza": "2023-11-28",
+    "pagato": true
+  },
+  {
+    "id": 10,
+    "nome": "Elena Gallo",
+    "azienda": "Gallo Servizi",
+    "email": "e.gallo@galloservizi.it",
+    "telefono": "330-4567890",
+    "fattura": "F-2023-010",
+    "importo": 1590.40,
+    "scadenza": "2023-12-08",
+    "pagato": true
+  },
+  {
+    "id": 11,
+    "nome": "Roberto Conti",
+    "azienda": "Conti Engineering",
+    "email": "r.conti@contiengineering.it",
+    "telefono": "335-9012345",
+    "fattura": "F-2023-011",
+    "importo": 3450.70,
+    "scadenza": "2023-11-18",
+    "pagato": true
+  },
+  {
+    "id": 12,
+    "nome": "Alessia Costa",
+    "azienda": "Costa Group",
+    "email": "a.costa@costagroup.it",
+    "telefono": "338-3456789",
+    "fattura": "F-2023-012",
+    "importo": 2140.20,
+    "scadenza": "2023-12-12",
+    "pagato": false
+  },
+  {
+    "id": 13,
+    "nome": "Matteo Barbieri",
+    "azienda": "Barbieri Progetti",
+    "email": "m.barbieri@barbieriprohetti.it",
+    "telefono": "337-7890123",
+    "fattura": "F-2023-013",
+    "importo": 1920.35,
+    "scadenza": "2023-11-22",
+    "pagato": true
+  },
+  {
+    "id": 14,
+    "nome": "Chiara Fontana",
+    "azienda": "Fontana Consulting",
+    "email": "c.fontana@fontanaconsulting.it",
+    "telefono": "331-1234567",
+    "fattura": "F-2023-014",
+    "importo": 2670.80,
+    "scadenza": "2023-12-03",
+    "pagato": true
+  },
+  {
+    "id": 15,
+    "nome": "Stefano Marini",
+    "azienda": "Marini Systems",
+    "email": "s.marini@marinisystems.it",
+    "telefono": "334-5678901",
+    "fattura": "F-2023-015",
+    "importo": 3120.45,
+    "scadenza": "2023-11-26",
+    "pagato": true
+  },
+  {
+    "id": 16,
+    "nome": "Valentina Pellegrini",
+    "azienda": "Pellegrini Servizi",
+    "email": "v.pellegrini@pellegriniservizi.it",
+    "telefono": "336-9012345",
+    "fattura": "F-2023-016",
+    "importo": 1740.60,
+    "scadenza": "2023-12-07",
+    "pagato": true
+  },
+  {
+    "id": 17,
+    "nome": "Pietro Lombardi",
+    "azienda": "Lombardi Industries",
+    "email": "p.lombardi@lombardiindustries.it",
+    "telefono": "339-3456789",
+    "fattura": "F-2023-017",
+    "importo": 2930.10,
+    "scadenza": "2023-11-19",
+    "pagato": false
+  },
+  {
+    "id": 18,
+    "nome": "Sara Moretti",
+    "azienda": "Moretti Design",
+    "email": "s.moretti@morettidesign.it",
+    "telefono": "333-7890123",
+    "fattura": "F-2023-018",
+    "importo": 1870.30,
+    "scadenza": "2023-12-14",
+    "pagato": true
+  },
+  {
+    "id": 19,
+    "nome": "Federico Grasso",
+    "azienda": "Grasso Soluzioni",
+    "email": "f.grasso@grassosoluzioni.it",
+    "telefono": "335-2345678",
+    "fattura": "F-2023-019",
+    "importo": 2580.90,
+    "scadenza": "2023-11-29",
+    "pagato": true
+  },
+  {
+    "id": 20,
+    "nome": "Claudia Santoro",
+    "azienda": "Santoro Tecnologie",
+    "email": "c.santoro@santorotecnologie.it",
+    "telefono": "338-6789012",
+    "fattura": "F-2023-020",
+    "importo": 3960.25,
+    "scadenza": "2023-12-02",
+    "pagato": false
+  }
+] 
